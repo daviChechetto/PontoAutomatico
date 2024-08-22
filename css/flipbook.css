@@ -1,0 +1,207 @@
+.botoes-nav-book{
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    text-align:center;
+    margin-bottom: 10px;
+    width:100%;
+}
+
+.botoes-voltar, .botoes-avancar{
+    display: flex;
+}
+
+.rodape-flipbook {
+    margin-top: 15px;
+    text-align: center;
+    align-items: center;
+}
+
+.rodape-flipbook .setas {
+    text-align: center;
+    margin-block: 5px;
+    font-size: 15px;
+}
+
+#flipbook {
+    width: 60%!important;
+    height: 500px !important;
+}
+
+#flipbook .page {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#flipbook .page {
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+#flipbook .page img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#flipbook .shadow {
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -moz-transition: -moz-box-shadow 0.5s;
+    -o-transition: -webkit-box-shadow 0.5s;
+    -ms-transition: -ms-box-shadow 0.5s;
+
+    -webkit-box-shadow: 0 0 20px #ccc;
+    -moz-box-shadow: 0 0 20px #ccc;
+    -o-box-shadow: 0 0 20px #ccc;
+    -ms-box-shadow: 0 0 20px #ccc;
+    box-shadow: 0 0 20px #ccc;
+}
+
+.btns-book {
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.btns-book i {
+    padding: 4px 20px;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+
+.btns-book i:hover {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn.focus{
+    box-shadow: none !important;
+}
+
+button[disabled]{
+    cursor: no-drop;
+}
+
+.container-flipbook {
+    float: left;
+    width: 25%;
+}
+
+.container-flipbook .col-offet-md-3 {
+    margin-left: 25%;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+
+
+
+ #flipbook{
+    width: 100% !important;
+    /*height: 721px !important;*/
+}
+#flipbook .page{
+    /*width:461px;*/
+    /*height:600px;*/
+    background-color:white;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+
+#flipbook .page{
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.2);
+    -ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
+    -o-box-shadow:0 0 20px rgba(0,0,0,0.2);
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+    /*height:  800px!important;*/
+}
+
+#flipbook .page img{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin:0;
+}
+
+#flipbook .shadow{
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -moz-transition: -moz-box-shadow 0.5s;
+    -o-transition: -webkit-box-shadow 0.5s;
+    -ms-transition: -ms-box-shadow 0.5s;
+
+    -webkit-box-shadow:0 0 20px #ccc;
+    -moz-box-shadow:0 0 20px #ccc;
+    -o-box-shadow:0 0 20px #ccc;
+    -ms-box-shadow:0 0 20px #ccc;
+    box-shadow:0 0 20px #ccc;
+}
+/*.btns-book {
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 8px;
+}*/
+.btns-book i{
+    padding: 4px 20px;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+.btns-book i:hover{
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+.btn.focus, .btn:focus{
+    box-shadow: none!important;
+}
+button[disabled],
+button[disabled].btns-book i:hover {
+    cursor: no-drop;
+}
+.container-flipbook .col-xs-1, .container-flipbook .col-xs-2, .container-flipbook .col-xs-3, .container-flipbook .col-xs-4, .container-flipbook .col-xs-5, .container-flipbook .col-xs-6, .container-flipbook .col-xs-7, .container-flipbook .col-xs-8, .container-flipbook .col-xs-9, .container-flipbook .col-xs-10, .container-flipbook .col-xs-11, .container-flipbook .col-xs-12 {
+      float: left;
+}
+
+.container-flipbook .col-xs-3 {
+      width: 25%;
+}
+.container-flipbook .col-offset-md-3{
+    margin-left: 25%;
+}

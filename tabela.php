@@ -5,6 +5,7 @@ $nome = $_GET['nome'];
 $diretor = $_GET['diretor'];
 $mes = $_GET['mes'];
 $periodo = $_GET['periodo'];
+$carga = $_GET['carga'];
 
 ?>
 <!DOCTYPE html>
@@ -44,10 +45,17 @@ $periodo = $_GET['periodo'];
                     HORÁRIO DE ESTÁGIO
                 </th>
                 <td colspan="3">
-                    <?php if($periodo == 'manha'){
+                    <?php 
+                    if(($periodo == 'manha') && ($carga == 'seis')){
                         echo '08h-14h';
-                    }else{
+                    }
+                    else if(($periodo == 'manha') && ($carga == 'quatro')){
+                        echo '08h-12h';
+                    }
+                    else if(($periodo == 'tarde') && ($carga == 'seis')){
                         echo '11h-17h';
+                    }else{
+                        echo '13h-17h';
                     } ?>
                 </td>
             </tr>
@@ -110,7 +118,7 @@ $periodo = $_GET['periodo'];
                     SAÍDA
                 </td>
             </tr>
-            <?php diasUteis($dias, $date, $dispensa, $periodo,$mes) ?>
+            <?php diasUteis($dias, $date, $dispensa, $periodo,$mes, $carga) ?>
         </tbody>
         <tfoot>
             <tr>

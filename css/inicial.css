@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Glitch&display=swap');
+
+@font-face {
+    font-family: 'Respondent';
+    src: url('respondent/RespondentBold_PERSONAL_USE_ONLY.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+
+form label{
+    font-weight: 300;
+    font-style: italic;
+}
+/* Background Animação do dark-mode */
+body{
+    background-image: linear-gradient(to bottom right, #232227, #000);
+    height: 100vh;
+    margin:0;
+    position: relative;
+    z-index: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom right, #e0efa3, #627f65);
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+    opacity: 1;
+}
+
+body.night-mode::before {
+    content: "";
+    background-image: linear-gradient(to bottom right, #e0efa3, #627f65);
+    opacity: 0;
+}
+
+body.night-mode::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #232227, #000);
+    transition: opacity 1s ease-in-out;
+    z-index: -2;
+    opacity: 1;
+}
+
+.form-dark-mode{
+    background-color: rgb(39 39 39);
+}
+
+.form-dark-mode input, .form-dark-mode label, .form-dark-mode select, .form-dark-mode button, .form-dark-mode i, .form-dark-mode legend, .form-dark-mode ~ h1{
+    color: aliceblue !important;
+}
+
+.form-dark-mode input, .form-dark-mode select{
+    border-bottom: 1px solid #757575 !important;
+}
+.form-dark-mode button{
+    background-color: rgb(63 63 63);
+}
+
+
+.blur{
+    filter: blur(5px);
+}
+
+
+
+
+/* FIM Background Animação do dark-mode */
+
+/* Header */
+
+    header{
+        height: 21%;
+        text-align: center;
+        transition: 250ms;
+    }
+
+    .night-mode header h1{
+        margin-block: 0;
+        padding-top: 50px;
+        font-weight: normal;
+        font-size: 56px;
+        color: white;
+        transition: 250ms;
+    }
+    
+    .night-mode header h1 span{
+        display: inherit;
+        font-size: 22px;
+        font-family: "Rubik Glitch", system-ui;
+        font-weight: normal;
+        margin-top: -17px;
+        color: #8676f9;
+        transition: 250ms;
+    }
+
+
+    header h1 {
+        margin-block: 0;
+        padding-top: 50px;
+        font-weight: normal;
+        font-size: 56px;
+        color: #000000;
+        user-select: none;
+    }
+    
+    header h1 span{
+        display: inherit;
+        font-size: 37px;
+        font-family: 'Respondent', sans-serif;
+        font-weight: normal;
+        margin-top: -28px;
+        color: white;
+    }
+    
+    .vision-mode{
+        position: absolute;
+        height: 60px;
+        width: 80px;
+    }
+
+    .vision-mode input{
+        display: none;
+    }
+
+
+/* FIM Header */
+
+    .formulario{
+        display: flex;
+        justify-content: center;
+        height: 58%;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        padding-inline: 40px;
+        padding-block: 30px;
+        justify-content: center;
+        background-color: rgb(255 255 255 / 63%);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.589);
+        transition: 250ms;
+    }
+
+    main button{
+        border-style: none;
+        width: 100%;
+        height: 30px;
+        font-size: 16px;
+        box-shadow: 1px 3px 20px -10px rgba(0, 0, 0, 0.589);
+        font-weight: normal;
+        background-color: rgb(255 255 255 / 67%);
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    button:hover{
+        background-color: rgba(95, 225, 101, 0);
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: rgb(186, 100, 3);
+    }
+
+
+/* 3 primeiros inputs */
+
+    .campos{
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        margin-block: 15px;
+    }
+
+    .campo{
+        display: flex;
+    }
+
+    .campo label{
+        color: black;
+        width: 20%;
+    }
+    .campo input{
+        background:none;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: 0;
+        font-size: 16px;
+        color: black;
+        width: 80%;
+    }
+    .campo input:focus {
+        box-shadow:none;
+    }
+    .campo select{
+        background:none;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: 0;
+        color: black;
+        font-size: 16px;
+        width: 80%;
+        height: 21px;
+    }
+
+/* Fim 3 primeiros inputs */
+
+
+
+/* Modal de Explicacao */
+
+    .campo-feriado{
+        margin-block: 30px;
+        position: relative;
+    }
+
+    .modalInformacaoAdicional{
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        bottom: 45px;
+        background-color: rgb(47 47 47 / 98%);
+        border-radius: 8px;
+        padding-inline: 10px;
+        width: 330px;
+    }
+
+    .modalInformacaoAdicional p{
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    .modalInformacaoAdicional .exemplo{
+        color: rgb(216, 216, 216);
+        font-size: 0.7rem;
+        padding-left: 5px;
+    }
+
+    .icone-ajudante{
+        color: rgb(34, 34, 34);
+    }
+    .icone-ajudante:hover{
+        cursor: help;
+    }
+
+/* FIM Modal de Explicacao */
+
+/* Feriados */
+
+    .campo-feriado input{
+        background:none;
+        border: none;
+        margin-top: 5px;
+        border-bottom: 1px solid black;
+        outline: 0;
+        font-size: 16px;
+        color: black;
+        width: 100%;
+    }
+
+/* FIM feriados */
+
+
+/* Cor do texto do autocomplete */
+    input:-webkit-autofill {
+        -webkit-text-fill-color: black;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+    -webkit-text-fill-color: black !important;
+    -webkit-box-shadow: none;
+    transition: background-color 5000s ease-in-out 0s;
+    }
+
+
+    .visionButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        margin: 15px;
+        background-color: rgb(36, 36, 36);
+        border-radius: 15px;
+        width: 50px;
+        height: 30px;
+        transition: 250ms;
+    }
+
+    .visionButton:hover{
+        cursor: pointer;
+    }
+
+
+    .bola-off{
+        width: 20px;
+        height: 20px;
+        padding-top: 2px;
+        font-size: 1.1rem;
+        color: #ffffff;
+        border-radius: 15px;
+        position: relative;
+        left: -10px;
+        transform: rotate(-90deg);
+        transition: left 250ms ease-in-out, color 250ms ease-in-out, transform 250ms ease-in-out;
+    }
+
+    .vision-mode input:checked + label .bola-off{
+        left: 10px;
+        color: rgb(204 172 238);
+        transform: rotate(0deg);
+    }
+
+    #visionButton:checked + .visionButton{
+        -webkit-box-shadow: 0px 0px 105px 22px rgba(204, 172, 238,0.75);
+        -moz-box-shadow: 0px 0px 105px 22px rgba(204, 172, 238,0.75);
+        box-shadow: 0px 0px 105px 34px rgb(166 82 255 / 77%)
+    }
+
+/* Footer */
+
+    footer{
+        display: flex;
+        align-items: flex-end;
+        height: 21%;
+        position:relative;
+    }
+    .creditos {
+        display: none;
+    }
+
+    .creditos .link{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position:fixed;
+        width:100%;
+        height:100%;
+        border:none;
+        left:0;
+        top:0;
+        animation: showing 250ms ;
+    }
+
+    @keyframes showing{
+        0%{
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    footer i{
+        margin: 15px;
+        cursor: pointer;
+        z-index: 3;
+    }
+
+    #acessbilidadeVlibras {
+        top: 70vh !important;
+        left: 4px;
+        max-width: 300px !important;
+        background-color: transparent !important;
+    }
+
+    .botao-link {
+        display: inline-block;
+        font-weight: 400;
+        color: #fff;
+        background-color: #28a745;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+    }
+    
+
+/* FIM Footer */
+
+
+

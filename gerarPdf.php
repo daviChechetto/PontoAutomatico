@@ -10,6 +10,7 @@ $options = new Options();
 
 $nome = $_GET['nome'];
 $diretor = $_GET['diretor'];
+$carga = $_GET['carga'];
 $mes = $_GET['mes'];
 $folgas = $_GET['folgas'];
 $periodo = $_GET['periodo'];
@@ -21,7 +22,7 @@ $options->set('isRemoteEnabled', true);
 
 $dompdf = new Dompdf($options);
 
-$dompdf->loadHtmlFile("http://localhost/pontoAutomatico/tabela.php?nome=$nome&diretor=$diretor&mes=$mes&folgas=$folgas&periodo=$periodo");
+$dompdf->loadHtmlFile("http://localhost/pontoAutomatico/tabela.php?nome=$nome&diretor=$diretor&carga=$carga&mes=$mes&folgas=$folgas&periodo=$periodo");
 
 $dompdf->setPaper("A4");
 
