@@ -90,12 +90,12 @@
     }
 
 	#flipbook{
-		width: 100% !important;
-		/*height: 721px !important;*/
+		width: 90% !important;
+		height: 680px !important;
 	}
 	#flipbook .page{
-		/*width:461px;*/
-		/*height:600px;*/
+		/* width:461px;*/
+		height:600px;
 		background-color:white;
 		background-repeat:no-repeat;
 		background-size:100% 100%;
@@ -121,11 +121,6 @@
 	}
 
 	#flipbook .shadow{
-		-webkit-transition: -webkit-box-shadow 0.5s;
-		-moz-transition: -moz-box-shadow 0.5s;
-		-o-transition: -webkit-box-shadow 0.5s;
-		-ms-transition: -ms-box-shadow 0.5s;
-
 		-webkit-box-shadow:0 0 20px #ccc;
 		-moz-box-shadow:0 0 20px #ccc;
 		-o-box-shadow:0 0 20px #ccc;
@@ -249,7 +244,8 @@
 			</div>
 		</div>
 	<?php endfor; ?>
-	<?php /* ?>
+	<?php 
+	/* ?>
 	<div class="row showPDF">		
 		<div class="embed-responsive" style="height: 1000px;">
 			<embed class="embed-responsive-item" src="<?= $urlBase_config.'files/livro-historia-criciuma.pdf';?>" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
