@@ -68,29 +68,14 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
             }
             ?>
             <div <?= $class ?>>
-                <img class="img-responsive" src="<?= $urlBase_config . "img/flip_book/page_" . $i . ".jpg" ?>" alt="Página <?= $i ?>" >
+                <img class="img-responsive" src="<?= $urlBase_config . "img/flip_book_meu/page_" . $i . ".jpg" ?>" alt="Página <?= $i ?>" >
             </div>
         <?php endfor; ?>
     </div>
 	</div>
     
 
-	<?php for ($i=1; $i <= 5; $i++):?>	
-		<div class="modal" id="modal_page<?= $i?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-body modal-bodyy">
-						<button type="button" data-dismiss="modal" aria-label="Close">
-						<span>x</span>
-						</button>
-						<div>
-							<img src="<?= $urlBase_config."img/flip_book/page_".$i.".jpg"?>" style="width:100%; margin-top: 10px;">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<?php endfor; ?>
+	
 
     <div class="rodape-flipbook">
         <div class="setas">

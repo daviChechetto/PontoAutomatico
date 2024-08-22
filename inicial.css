@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'Respondent';
-    src: url('respondent/RespondentBold_PERSONAL_USE_ONLY.otf') format('opentype');
+    src: url('../respondent/RespondentBold_PERSONAL_USE_ONLY.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
