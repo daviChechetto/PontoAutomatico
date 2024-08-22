@@ -100,7 +100,7 @@
             </div>
         </div>
         <div class="creditos">
-            <div class="link">
+            <div class="link esconder-link">
                 <a href="<?= $urlBase_config ?>files/documentoPA.pdf" target="_blank">
                     <div class="botao-link">
                         <i class="fas fa-file-download" style="margin-right: 5px;"></i> Versão PDF

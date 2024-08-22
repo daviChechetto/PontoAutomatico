@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'Respondent';
-    src: url('respondent/RespondentBold_PERSONAL_USE_ONLY.otf') format('opentype');
+    src: url('../respondent/RespondentBold_PERSONAL_USE_ONLY.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -361,7 +361,12 @@ body.night-mode::after {
         border:none;
         left:0;
         top:0;
+    }
+    .mostrar-link{
         animation: showing 250ms ;
+    }
+    .esconder-link{
+        animation: hiden 250ms ;
     }
 
     @keyframes showing{
@@ -370,6 +375,14 @@ body.night-mode::after {
         }
         100% {
             opacity: 1;
+        }
+    }
+    @keyframes hiden{
+        0%{
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
         }
     }
 
