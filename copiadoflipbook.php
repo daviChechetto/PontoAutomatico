@@ -212,7 +212,8 @@
 		</div>
 	</div>
 		<!-- <div class="col-md-12"> -->
-	<div id="flipbook">
+	<div class="container" style="margin-inline: 60px;">
+		<div id="flipbook">
 		<?php for ($i=1; $i <= 5; $i++):?>
 			<?php
 				if ($i == 1 || $i == 2 || $i == 4 || $i == 5) {
@@ -226,6 +227,8 @@
 			</div>
 		<?php endfor; ?>
 	</div>
+	</div>
+	
 		<!-- </div> -->
 	<!-- </div> -->
 	<?php for ($i=1; $i <= 5; $i++):?>	

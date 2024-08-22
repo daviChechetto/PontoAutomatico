@@ -34,7 +34,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
                 <button class="btn btns-book btn-3" type="button" onclick="$('#flipbook').turn('previous');"><i class="fas fa-arrow-left" title="Voltar para a próxima página"></i></button>
             </div>
             <div class=" ">
-                <button class="btn btns-book btn-5" type="button" onclick="$('#flipbook').turn('page', 5);"><i class="fas fa-angle-double-right" title="Avançar para a última página"></i></button>
+                <button class="btn btns-book btn-5" type="button" onclick="$('#flipbook').turn('page', 7);"><i class="fas fa-angle-double-right" title="Avançar para a última página"></i></button>
                 <button class="btn btns-book btn-4" type="button" onclick="$('#flipbook').turn('next');"><i class="fas fa-arrow-right" title="Avançar para a próxima página"></i></button>
             </div>
             <div class=" ">
@@ -50,25 +50,25 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
             </div>
             <div class="botoes-avancar">
                 <button class="btn btns-book btn-4" type="button" onclick="$('#flipbook').turn('next');"><i class="fas fa-arrow-right" title="Avançar para a próxima página"></i></button>
-                <button class="btn btns-book btn-5" type="button" onclick="$('#flipbook').turn('page', 5);"><i class="fas fa-angle-double-right" title="Avançar para a última página"></i></button>
+                <button class="btn btns-book btn-5" type="button" onclick="$('#flipbook').turn('page', 7);"><i class="fas fa-angle-double-right" title="Avançar para a última página"></i></button>
             </div>
             <div class="botoes-avancar">
                 <button class="btn btns-book btn-6" type="button"><i class="fas fa-search-plus" title="Ampliar foto da direita"></i></button>
             </div>
         <?php endif; ?>
     </div>
-	<div style="margin-inline: 65px">
+	<div style="margin-inline: 21%">
 		<div id="flipbook" class="container-flipbook">
-        <?php for ($i = 1; $i <= 5; $i++): ?>
+        <?php for ($i = 1; $i <= 7; $i++): ?>
             <?php
-            if ($i == 1 || $i == 2 || $i == 4 || $i == 5) {
+            if ($i == 1 || $i == 2 || $i == 7) {
                 $class = "class=\"hard\"";
             } else {
                 $class = "";
             }
             ?>
             <div <?= $class ?>>
-                <img class="img-responsive" src="<?= $urlBase_config . "img/flip_book_meu/page_" . $i . ".jpg" ?>" alt="Página <?= $i ?>" >
+                <img class="img-responsive" src="<?= $urlBase_config . "img/flip_book/page_" . $i . ".jpg" ?>" alt="Página <?= $i ?>" >
             </div>
         <?php endfor; ?>
     </div>
@@ -112,7 +112,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 			acceleration: !isChrome(),
 			height: newHeight,
 			autoCenter: true,
-			pages: 5, 
+			pages: 7, 
 			when: {
 				turned: function(e, page, obj) {
 					if (page === 1) {
@@ -128,7 +128,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 						// $("#flipbook").css("-webkit-box-shadow", "0px 0px 18px 5px rgba(0,0,0,0.45)");
 						// $("#flipbook").css("box-shadow", "0px 0px 18px 5px rgba(0,0,0,0.45)");
 					}
-					if (page === 5) {
+					if (page === 7) {
 						$(".btn-1").attr("disabled", "disabled");
 						$(".btn-4").attr("disabled", "disabled");
 						$(".btn-5").attr("disabled", "disabled");
@@ -147,7 +147,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 					if (page === 1) {
 						$(".btn-1").attr("onclick", '$("#modal_page'+page+'").modal("show")');
 						$(".btn-6").removeAttr("onclick");
-					}else if(page === 5) {
+					}else if(page === 7) {
 						$(".btn-1").removeAttr("onclick");
 						$(".btn-6").attr("onclick", '$("#modal_page'+page+'").modal("show")');
 					}else {
@@ -156,7 +156,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 					}
 				},
 				turning: function(e, page, obj) {
-					if (page != 1 && page != 5) {
+					if (page != 1 && page != 7) {
 						$("#flipbook").css("-webkit-box-shadow", "0px 0px 18px 5px rgba(0,0,0,0.45)");
 						$("#flipbook").css("box-shadow", "0px 0px 18px 5px rgba(0,0,0,0.45)");
 					}else{
