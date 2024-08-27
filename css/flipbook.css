@@ -55,19 +55,6 @@
     height: 100%;
 }
 
-#flipbook .shadow {
-    -webkit-transition: -webkit-box-shadow 0.5s;
-    -moz-transition: -moz-box-shadow 0.5s;
-    -o-transition: -webkit-box-shadow 0.5s;
-    -ms-transition: -ms-box-shadow 0.5s;
-
-    -webkit-box-shadow: 0 0 20px #ccc;
-    -moz-box-shadow: 0 0 20px #ccc;
-    -o-box-shadow: 0 0 20px #ccc;
-    -ms-box-shadow: 0 0 20px #ccc;
-    box-shadow: 0 0 20px #ccc;
-}
-
 .btns-book {
     padding: 4px;
     border: 1px solid black;
@@ -126,16 +113,11 @@ button[disabled]{
     border-color: #28a745;
 }
 
-
-
-
- #flipbook{
+#flipbook{
     width: 100% !important;
-    /*height: 721px !important;*/
 }
+
 #flipbook .page{
-    /*width:461px;*/
-    /*height:600px;*/
     background-color:white;
     background-repeat:no-repeat;
     background-size:100% 100%;
@@ -147,7 +129,6 @@ button[disabled]{
     -ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
     -o-box-shadow:0 0 20px rgba(0,0,0,0.2);
     box-shadow:0 0 20px rgba(0,0,0,0.2);
-    /*height:  800px!important;*/
 }
 
 #flipbook .page img{
@@ -166,17 +147,12 @@ button[disabled]{
     -o-transition: -webkit-box-shadow 0.5s;
     -ms-transition: -ms-box-shadow 0.5s;
 
-    -webkit-box-shadow:0 0 20px #ccc;
-    -moz-box-shadow:0 0 20px #ccc;
-    -o-box-shadow:0 0 20px #ccc;
-    -ms-box-shadow:0 0 20px #ccc;
-    box-shadow:0 0 20px #ccc;
+    -webkit-box-shadow:0 0 20px #0000007c;
+    -moz-box-shadow:0 0 20px #0000007c;
+    -o-box-shadow:0 0 20px #0000007c;
+    -ms-box-shadow:0 0 20px #0000007c;
+    box-shadow:0 0 20px #0000007c;
 }
-/*.btns-book {
-    padding: 4px;
-    border: 1px solid black;
-    border-radius: 8px;
-}*/
 .btns-book i{
     padding: 4px 20px;
     border: 1px solid #000;

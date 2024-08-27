@@ -1,7 +1,6 @@
 <?php $urlBase_config  = 'http://localhost/pontoAutomatico/'; ?>
 
-<link rel="stylesheet" href="css/inicial.css">
-<link rel="stylesheet" href="css/flipbook.css">
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -56,19 +55,22 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
     <main class="formulario">
 
         <form action="gerarPdf.php" method="get">
+   
+            <img class="" id="imagem-bronca" src="img/bronca.jfif" alt="Imagem de bronca">
+            <img class="" id="imagem-seta" src="img/arrow.png" alt="Imagem de uma seta">
 
             <section class="campos">
                 <div class="campo">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome">
+                    <input class="campos-requiridos" type="text" name="nome" id="nome" required>
                 </div>
                 <div class="campo">
                     <label for="diretor">Diretor</label>
-                    <input class="dados" type="text" name="diretor" id="diretor" value="Matheus Sant'ana Pacheco">
+                    <input class="campos-requiridos" type="text" name="diretor" id="diretor" value="Matheus Sant'ana Pacheco"  required>
                 </div>
                 <div class="campo">
                     <label class="mes" for="mes">Mês</label>
-                    <select class="dados" id="mes" name="mes">
+                    <select id="mes" name="mes">
                         <option value="1">1 - Janeiro</option>
                         <option value="2">2 - Fevereiro</option>
                         <option value="3">3 - Março</option>
@@ -87,49 +89,74 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 
 
             <section class="campo-feriado">
-                <div class="modalInformacaoAdicional" style="display: none;">
+                <div class="modalInformacaoAdicional">
                     <p>SÁBADOS E DOMINGOS são incluídos automaticamente</p>
                     <p>Digite os dias separados por virgula. <span class="exemplo">Ex: 1, 10, 21</span></p>
                 </div>
-                <label class="dados" for="folgas" style="margin-top: 20px;">
-                    <i class="fas fa-info-circle icone-ajudante"></i> Feriados
+                <label for="folgas">
+                    Feriados <i class="fas fa-info-circle icone-ajudante"></i>
                 </label>
-                <input class="dados" type="text" name="folgas" id="folgas" placeholder="Digite os dias de feriados">
+                <input type="text" name="folgas" id="folgas" placeholder="Digite os dias de feriados">
             </section>
 
 
-            <section class="horario">
+            <div class="horario">
+                <label>Periodo de trabalho</label>
+                <div class="periodo-trabalho">
+                    <input type="radio" name="periodo" id="manha" value="manha" checked>
+                    <label for="manha" class="option option-left">
+                        <p>Manha</p>
+                    </label>
+                    <input type="radio" name="periodo" id="tarde" value="tarde">
+                    <label for="tarde" class="option option-right">
+                        <p>Tarde</p>
+                    </label>
+                </div>
 
-                <legend>Periodo de trabalho</legend>
-                <input type="radio" name="periodo" id="manha" value="manha" checked>
-                <label for="manha">Manha</label>
-                <input type="radio" name="periodo" id="tarde" value="tarde">
-                <label for="tarde">Tarde</label>
+            
+                <label>Carga horária</label>
+                <div class="periodo-trabalho">
+                    <input type="radio" name="carga" id="quatro" value="quatro">
+                    <label class="option option-left" for="quatro">
+                        <p>4 horas</p>
+                    </label>
+                    
+                    <input type="radio" name="carga" id="seis" value="seis" checked>
+                    <label for="seis" class="option option-right">
+                        <p>6 horas</p>
+                    </label>
+                </div>
 
-                <legend>Carga horária</legend>
-                <input type="radio" name="carga" id="quatro" value="quatro">
-                <label for="quatro">4 horas</label>
-                <input type="radio" name="carga" id="seis" value="seis" checked>
-                <label for="seis">6 horas</label>
+            </div>
 
-            </section>
-
-            <button class="" type="submit">Gerar</button>
+            <button class="submitButton" type="submit">Gerar</button>
 
         </form>
 
+        <aside>
+
+            <button></button>
+            <button></button>
+            <button></button>
+
+            <div id="acessbilidadeVlibras" vw class="enabled">
+                <div vw-access-button class="active"></div>
+                <div vw-plugin-wrapper>
+                    <div class="vw-plugin-top-wrapper"></div>
+                </div>
+            </div>
+
+        </aside>
+
     </main>
 
+
     <footer>
-        <div id="acessbilidadeVlibras" vw class="enabled">
-            <div vw-access-button class="active"></div>
-            <div vw-plugin-wrapper>
-                <div class="vw-plugin-top-wrapper"></div>
-            </div>
-        </div>
+        
+        
         <div class="creditos">
             <div class="link esconder-link">
-                <section>
+                <section style="width: 100vw;">
                     <div class="botoes-nav-book">
                         <?php if ($mobile): ?>
                             <div class=" ">
@@ -163,7 +190,8 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div style="margin-inline: 0%">
+
+                    <div style="margin-inline: 21%">
                         <div id="flipbook" class="container-flipbook">
                             <?php for ($i = 1; $i <= 7; $i++): ?>
                                 <?php
@@ -194,7 +222,9 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
             </div>
         </div>
 
-        <i class="fas fa-book icone-creditos" title="Créditos"></i>
+        <div class="circulo-livro">
+            <i class="fas fa-book icone-creditos" title="Créditos"></i>
+        </div>
 
     </footer>
 </body>

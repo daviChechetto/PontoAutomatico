@@ -24,12 +24,61 @@ $(document).ready(function() {
     });
 
     $('.icone-creditos').click(function() {
-        $('.creditos').toggle();
+
+        $('.circulo-livro').toggleClass('mostrar-circulo');
+
+        if ($('.creditos').css('visibility') === 'hidden'){
+            console.log('estava hidden')
+            $('.link').toggleClass('esconder-link')
+            $('.link').toggleClass('mostrar-link')
+            $('.creditos').css('visibility', 'visible');
+            console.log('ficou visivel')
+        } else{
+            console.log('estava visivel')
+            $('.link').toggleClass('esconder-link')
+            $('.link').toggleClass('mostrar-link')
+            setTimeout(function(){
+                $('.creditos').css('visibility', 'hidden');
+                console.log('ficou hidden')
+            }, 240)
+        }
+
         $('main').toggleClass('blur')
         $('header').toggleClass('blur')
+
     });
 
 
+    $('.submitButton').click(function(){
+
+        // funcao para mudar o aviso de 'campo nao preenchido'
+        $('.campos-requiridos').on("invalid", function (e) {
+
+            // muda a cor da variável usada declarada no inínio do arquivo css
+            $(':root').css('--background-selected', 'linear-gradient(to bottom right, #ff6a6a, #390000)');
+
+            // 'e.target' significa o elemento que ativou o evento
+            if ($(e.target).attr('id') == 'nome'){
+
+                e.target.setCustomValidity("Você tem que colocar o nome completo!");
+
+                $('form img').toggle()
+                $('#imagem-bronca').toggleClass('imagem-bronca')
+                $('#imagem-seta').toggleClass('imagem-seta')
+
+            } else if($(e.target).attr('id') == 'diretor'){
+
+                e.target.setCustomValidity("Coloca o nome do Diretor COMPLETO!");
+                
+                $('form img').toggle()
+                $('#imagem-bronca').toggleClass('imagem-bronca')
+                $('#imagem-seta').toggleClass('imagem-seta')
+                $('.imagem-seta').css('top', '3px')
+
+            }
+
+        });
+    })
 
     $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
         if (!$(this).next().hasClass('show')) {

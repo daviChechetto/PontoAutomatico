@@ -14,18 +14,27 @@
     font-optical-sizing: auto;
 }
 
-form label{
+:root{
+    /*  linear-gradient(to bottom right, #e0efa3, #627f65); */
+    /*  linear-gradient(to bottom right, #e0efa3, #627f65); */
+    --background-selected: linear-gradient(to bottom right, #f3ff47, #8300b9);
+    --background-dark-mode: linear-gradient(to bottom right, #232227, #000)
+}
+
+form input, form select{
     font-weight: 300;
     font-style: italic;
 }
+
 /* Background Animação do dark-mode */
+
 body{
-    background-image: linear-gradient(to bottom right, #232227, #000);
+    background-image: var(--background-dark-mode);
     height: 100vh;
     margin:0;
     position: relative;
     z-index: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 body::before {
@@ -33,7 +42,7 @@ body::before {
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient(to bottom right, #e0efa3, #627f65);
+    background: var(--background-selected);
     transition: opacity 1s ease-in-out;
     z-index: -1;
     opacity: 1;
@@ -41,47 +50,52 @@ body::before {
 
 body.night-mode::before {
     content: "";
-    background-image: linear-gradient(to bottom right, #e0efa3, #627f65);
+    background: var(--background-selected);
     opacity: 0;
 }
 
-body.night-mode::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom right, #232227, #000);
-    transition: opacity 1s ease-in-out;
-    z-index: -2;
-    opacity: 1;
-}
+    /* Mudanças para DarkMode */
 
-.form-dark-mode{
-    background-color: rgb(39 39 39);
-}
+        .form-dark-mode{
+            background-color: rgb(39 39 39);
+        }
 
-.form-dark-mode input, .form-dark-mode label, .form-dark-mode select, .form-dark-mode button, .form-dark-mode i, .form-dark-mode legend, .form-dark-mode ~ h1{
-    color: aliceblue !important;
-}
+        .night-mode input, .night-mode label, .night-mode select, .night-mode button, .night-mode i, .night-mode legend, .form-dark-mode ~ h1, .night-mode .setas{
+            color: aliceblue !important;
+        }
 
-.form-dark-mode input, .form-dark-mode select{
-    border-bottom: 1px solid #757575 !important;
-}
-.form-dark-mode button{
-    background-color: rgb(63 63 63);
-}
+        .form-dark-mode input, .form-dark-mode select{
+            border-bottom: 1px solid #757575 !important;
+        }
+        .form-dark-mode button{
+            background-color: rgb(63 63 63);
+        }
+        .form-dark-mode button:hover{
+            background-color: rgba(0, 0, 0, 0.4);
+        }
 
+        .form-dark-mode .option{
+            background-color: #0000006b;
+        }
 
+        .form-dark-mode .option:hover{
+            background-color: #000000b0;
+        }
+
+        .form-dark-mode .periodo-trabalho input:checked + .option{
+            background-color: #000000;
+        }
+    
+    /* Mudanças para DarkMode */
+    
+
+    
+    
+/* FIM Background Animação do dark-mode */
+    
 .blur{
     filter: blur(5px);
 }
-
-
-
-
-/* FIM Background Animação do dark-mode */
 
 /* Header */
 
@@ -148,15 +162,14 @@ body.night-mode::after {
         height: 58%;
     }
     form{
-        display: flex;
-        flex-direction: column;
+        width: 300px;
         border-radius: 10px;
-        padding-inline: 40px;
-        padding-block: 30px;
-        justify-content: center;
+        padding-inline: 30px;
         background-color: rgb(255 255 255 / 63%);
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.589);
         transition: 250ms;
+        margin: 0;
+        position: relative;
     }
 
     main button{
@@ -172,13 +185,44 @@ body.night-mode::after {
     }
 
     button:hover{
-        background-color: rgba(95, 225, 101, 0);
+        background-color: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
     }
 
-    input:-webkit-autofill {
-        -webkit-box-shadow: rgb(186, 100, 3);
+    form label, form button{
+        user-select: none;
+    }
+/* IMG */
+
+    form img{
+        display: none;
+        position: absolute;
     }
 
+    .imagem-bronca{
+        left: 400px;
+        animation: showing 3s;    
+    }
+
+    
+    .imagem-seta{
+        left: -250px;
+        top: -25px;
+        animation: rotate 3s forwards,showing 3s;    
+    }
+
+    @keyframes rotate{
+        0%{
+            rotate:0deg;
+        }
+        100%{
+            rotate:270deg;
+        };
+    }
+
+
+
+/* Fim IMG */
 
 /* 3 primeiros inputs */
 
@@ -212,6 +256,7 @@ body.night-mode::after {
     .campo select{
         background:none;
         border: none;
+        cursor: pointer;
         border-bottom: 1px solid black;
         outline: 0;
         color: black;
@@ -232,13 +277,19 @@ body.night-mode::after {
     }
 
     .modalInformacaoAdicional{
+        display: none;
         font-family: Arial, Helvetica, sans-serif;
         position: absolute;
-        bottom: 45px;
+        bottom: 50px;
         background-color: rgb(47 47 47 / 98%);
         border-radius: 8px;
         padding-inline: 10px;
         width: 330px;
+    }
+
+    .campo-feriado label{
+        display: flex;
+        justify-content: space-between;
     }
 
     .modalInformacaoAdicional p{
@@ -276,6 +327,77 @@ body.night-mode::after {
 
 /* FIM feriados */
 
+
+/* Periodo de Trabalho */
+
+    .horario legend{
+        font-weight: 300;
+        font-style: italic;
+    }
+    .horario div label{
+        font-weight: normal;
+        font-style: normal;
+    }
+    .horario label ~ div{
+        display: flex;
+        justify-content: center;
+    }
+
+    .horario input{
+        display: none;
+    }
+
+    .botaoSelecionado{
+        background-color: #F8F9FD;
+        border-color: hsl(243, 100%, 62%);
+    }
+
+    .option{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        width: 40%;
+        padding: 5px;
+        border-block:solid 1px;
+        background-color: #ffffff2e;
+        border-color: #473dff3d;
+        transition: 300ms;
+        cursor: pointer;
+    }
+
+    .option-left{
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-left: 0px;
+    }
+    .option-right{
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-right: 0px;
+    }
+
+    .option p{
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .option:hover{
+        background-color: #ffffffb0;
+    }
+
+    .periodo-trabalho input:checked + .option{
+        background-color: #fff;
+    }
+    
+    .periodo-trabalho input:checked + .option p{
+        font-weight: normal;
+    }
+    
+    .horario {
+        margin: 0;
+    }
+
+/* FIM Periodo de Trabalho */
 
 /* Cor do texto do autocomplete */
     input:-webkit-autofill {
@@ -340,6 +462,8 @@ body.night-mode::after {
         box-shadow: 0px 0px 105px 34px rgb(166 82 255 / 77%)
     }
 
+
+
 /* Footer */
 
     footer{
@@ -349,7 +473,7 @@ body.night-mode::after {
         position:relative;
     }
     .creditos {
-        display: none;
+        visibility: hidden;
     }
 
     .creditos .link{
@@ -387,10 +511,23 @@ body.night-mode::after {
         }
     }
 
-    footer i{
+    footer .circulo-livro > i{
         margin: 15px;
         cursor: pointer;
+    }
+    
+    footer .circulo-livro{
+        background-color: transparent;
+        border-top-right-radius: 50%;
         z-index: 3;
+        transition: 250ms;
+    }
+    
+    .mostrar-circulo{
+        background-color: aliceblue !important;
+    }
+    .night-mode .mostrar-circulo{
+        background-color: rgb(0, 0, 0) !important;
     }
 
     #acessbilidadeVlibras {
@@ -398,6 +535,11 @@ body.night-mode::after {
         left: 4px;
         max-width: 300px !important;
         background-color: transparent !important;
+        user-select: none;
+    }
+
+    .setas{
+        user-select: none;
     }
 
     .botao-link {
