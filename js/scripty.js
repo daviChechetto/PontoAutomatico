@@ -95,6 +95,18 @@ $(document).ready(function() {
         return false;
     });
 
+    $('.temas').click(function(){
+        console.log($(this).attr('id'))
+        if ($(this).attr('id') == 'tema-sand'){
+            $(':root').css('--background-selected', 'linear-gradient(to bottom right, #e0efa3, #627f65)');
+        } else if ($(this).attr('id') == 'tema-vicy'){
+            $(':root').css('--background-selected', 'linear-gradient(to bottom right, #f3ff47, #8300b9)');
+        } else if ($(this).attr('id') == 'tema-blues'){
+            $(':root').css('--background-selected', 'linear-gradient(to bottom right, #47ffc4, #0017b9)');
+        }
+
+    })
+
     var date = new Date(), mesAtual = date.getMonth() + 1;
     $('select').val(mesAtual)
     new window.VLibras.Widget('https://vlibras.gov.br/app');

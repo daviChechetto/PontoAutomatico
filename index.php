@@ -56,19 +56,19 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 
         <form action="gerarPdf.php" method="get">
    
-            <img class="" id="imagem-bronca" src="img/bronca.jfif" alt="Imagem de bronca">
-            <img class="" id="imagem-seta" src="img/arrow.png" alt="Imagem de uma seta">
+            <img class="" id="imagem-bronca" src="img/bronca.jfif" alt="Imagem de bronca" title="Imagem brava com você">
+            <img class="" id="imagem-seta" src="img/arrow.png" alt="Imagem de uma seta" title="Imagem apontando para onde você errou">
 
             <section class="campos">
-                <div class="campo">
+                <div class="campo" title="Digite seu nome Completo (Obrigatório)">
                     <label for="nome">Nome</label>
                     <input class="campos-requiridos" type="text" name="nome" id="nome" required>
                 </div>
-                <div class="campo">
+                <div class="campo" title="Digite seu nome do Diretor (Obrigatório)">
                     <label for="diretor">Diretor</label>
                     <input class="campos-requiridos" type="text" name="diretor" id="diretor" value="Matheus Sant'ana Pacheco"  required>
                 </div>
-                <div class="campo">
+                <div class="campo" title="Selecione o mês a ser gerado">
                     <label class="mes" for="mes">Mês</label>
                     <select id="mes" name="mes">
                         <option value="1">1 - Janeiro</option>
@@ -96,7 +96,7 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
                 <label for="folgas">
                     Feriados <i class="fas fa-info-circle icone-ajudante"></i>
                 </label>
-                <input type="text" name="folgas" id="folgas" placeholder="Digite os dias de feriados">
+                <input type="text" name="folgas" id="folgas" placeholder="Digite os dias de feriados" title="Digite os dias de feriados (Obrigatório)">
             </section>
 
 
@@ -135,9 +135,12 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 
         <aside>
 
-            <button></button>
-            <button></button>
-            <button></button>
+            <div class="changeThemas">
+                <button class="temas" id='tema-vicy'><i class="fas fa-umbrella-beach"></i></button>
+                <button class="temas" id='tema-blues'><i class="fas fa-wind"></i></button>
+                <button class="temas" id='tema-sand'><i class="fas fa-tree"></i></button>
+            </div>
+
 
             <div id="acessbilidadeVlibras" vw class="enabled">
                 <div vw-access-button class="active"></div>
