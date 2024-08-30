@@ -17,8 +17,6 @@ $(document).ready(function() {
         $('form').toggleClass('form-dark-mode')
     })
 
-
-
     $('.icone-ajudante').hover(function() {
         $('.modalInformacaoAdicional').toggle();
     });
@@ -28,18 +26,18 @@ $(document).ready(function() {
         $('.circulo-livro').toggleClass('mostrar-circulo');
 
         if ($('.creditos').css('visibility') === 'hidden'){
-            console.log('estava hidden')
+
             $('.link').toggleClass('esconder-link')
             $('.link').toggleClass('mostrar-link')
             $('.creditos').css('visibility', 'visible');
-            console.log('ficou visivel')
+
         } else{
-            console.log('estava visivel')
+
             $('.link').toggleClass('esconder-link')
             $('.link').toggleClass('mostrar-link')
+            
             setTimeout(function(){
                 $('.creditos').css('visibility', 'hidden');
-                console.log('ficou hidden')
             }, 240)
         }
 
@@ -47,7 +45,6 @@ $(document).ready(function() {
         $('header').toggleClass('blur')
 
     });
-
 
     $('.submitButton').click(function(){
 
@@ -65,6 +62,7 @@ $(document).ready(function() {
                 $('form img').toggle()
                 $('#imagem-bronca').toggleClass('imagem-bronca')
                 $('#imagem-seta').toggleClass('imagem-seta')
+                
 
             } else if($(e.target).attr('id') == 'diretor'){
 
@@ -77,7 +75,13 @@ $(document).ready(function() {
 
             }
 
+            setTimeout(function() {
+                e.target.setCustomValidity("");
+            }, 1000);
+
         });
+
+
     })
 
     $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
@@ -96,7 +100,6 @@ $(document).ready(function() {
     });
 
     $('.temas').click(function(){
-        console.log($(this).attr('id'))
         if ($(this).attr('id') == 'tema-sand'){
             $(':root').css('--background-selected', 'linear-gradient(to bottom right, #e0efa3, #627f65)');
         } else if ($(this).attr('id') == 'tema-vicy'){
@@ -107,7 +110,29 @@ $(document).ready(function() {
 
     })
 
+    $('.tamanhoFonte').click(function(){
+        if ($(this).attr('id') == 'AumentarFonte'){
+            $('main').css('font-size', '1.5rem');
+
+            $('.campo-feriado input, .campo input, .campo select, .submitButton').css('font-weight', '500');
+            $('.campo-feriado input, .campo input, .campo select, .submitButton').css('font-size', '1.4rem');
+
+            $('form').css('width', '450px');
+            $('form').css('height', '450px');
+        } else if (($(this).attr('id') == 'DiminuirFonte')){
+            $('main').css('font-size', 'unset');
+
+            $('.campo-feriado input, .campo input, .campo select, .submitButton').css('font-weight', '300');
+            $('.campo-feriado input, .campo input, .campo select, .submitButton').css('font-size', 'unset');
+
+            $('form').css('width', '300px');
+            $('form').css('height', '370px');
+        }
+    })
+
     var date = new Date(), mesAtual = date.getMonth() + 1;
     $('select').val(mesAtual)
     new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+
 })

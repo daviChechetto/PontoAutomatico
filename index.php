@@ -49,6 +49,14 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
                 <div class="bola-off fa fa-sun"></div>
             </label>
         </div>
+
+        <div class="acessibilidades">
+            <div class="acessibilidade-Visao">
+                <button class="tamanhoFonte" id="AumentarFonte">A+</button>
+                <button class="tamanhoFonte" id="DiminuirFonte">A-</button>
+            </div>
+        </div>
+        
         <h1>POINT<span>Automatic</span></h1>
     </header>
 
@@ -151,9 +159,9 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
 
         </aside>
 
+
     </main>
-
-
+    
     <footer>
         
         

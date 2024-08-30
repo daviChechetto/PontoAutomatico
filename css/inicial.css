@@ -5,7 +5,7 @@
     font-family: 'Respondent';
     src: url('../respondent/RespondentBold_PERSONAL_USE_ONLY.otf') format('opentype');
     font-weight: normal;
-    font-style: normal;
+    font-style: normal ;
 }
 
 
@@ -15,8 +15,6 @@
 }
 
 :root{
-    /*  linear-gradient(to bottom right, #e0efa3, #627f65); */
-    /*  linear-gradient(to bottom right, #e0efa3, #627f65); */
     --background-selected: linear-gradient(to bottom right, #f3ff47, #8300b9);
     --background-dark-mode: linear-gradient(to bottom right, #232227, #000)
 }
@@ -74,16 +72,20 @@ body.night-mode::before {
             background-color: rgba(0, 0, 0, 0.4);
         }
 
-        .form-dark-mode .option{
-            background-color: #0000006b;
+        .form-dark-mode .option, .night-mode .acessibilidade-Visao button{
+            background-color: #2d2d2d;
         }
 
         .form-dark-mode .option:hover{
-            background-color: #000000b0;
+            background-color: #2727276b;
         }
 
         .form-dark-mode .periodo-trabalho input:checked + .option{
-            background-color: #000000;
+            background-color: #0000006b;
+        }
+
+        .night-mode aside, .night-mode .acessibilidade-Visao{
+            background-color: #353535;
         }
     
     /* Mudanças para DarkMode */
@@ -109,7 +111,6 @@ body.night-mode::before {
         margin-block: 0;
         padding-top: 50px;
         font-weight: normal;
-        font-size: 56px;
         color: white;
         transition: 250ms;
     }
@@ -153,6 +154,36 @@ body.night-mode::before {
         display: none;
     }
 
+    .acessibilidades{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .acessibilidade-Visao{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        
+        position: absolute;
+        
+        width: 145px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background-color: #ffffffa1;
+
+        
+    }
+
+    .acessibilidade-Visao button{
+        border-radius: 4px;
+        border-style: none;
+        padding: 8px;
+        padding-block: 2px;
+        margin-block: 2px;
+        background-color: #ffffffd1
+    }
+
+
 
 /* FIM Header */
 
@@ -163,6 +194,7 @@ body.night-mode::before {
     }
     form{
         width: 300px;
+        height: 370px;
         border-radius: 10px;
         padding-inline: 30px;
         background-color: rgb(255 255 255 / 63%);
@@ -277,7 +309,6 @@ body.night-mode::before {
         color: black;
         font-size: 16px;
         width: 80%;
-        height: 21px;
     }
 
 /* Fim 3 primeiros inputs */
@@ -296,6 +327,7 @@ body.night-mode::before {
         font-family: Arial, Helvetica, sans-serif;
         position: absolute;
         bottom: 50px;
+        left: -25px;
         background-color: rgb(47 47 47 / 98%);
         border-radius: 8px;
         padding-inline: 10px;
@@ -446,7 +478,7 @@ body.night-mode::before {
         height: 150px;
         align-content: center;
 
-        background: #353535;
+        background: #ffffffa1;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
     }
@@ -585,7 +617,7 @@ body.night-mode::before {
     }
 
     #acessbilidadeVlibras {
-        top: 70vh !important;
+        top: 75vh !important;
         left: 4px;
         max-width: 300px !important;
         background-color: transparent !important;
@@ -618,3 +650,29 @@ body.night-mode::before {
 
 
 
+/* Responsividade para celular */
+
+@media (max-width: 500px) { 
+
+    form{
+        padding-inline: 8px;
+        height: 321px;
+    }
+    #acessbilidadeVlibras{
+        top: 94vh !important;
+    }
+    aside{
+        z-index: 1;
+        right: unset;
+        top: unset;
+        bottom: 0;
+        height: 40px;
+        border-radius: 0;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .changeThemas{
+        flex-direction: row;
+    }
+}
