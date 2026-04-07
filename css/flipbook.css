@@ -24,8 +24,8 @@
 }
 
 #flipbook {
-    width: 60%!important;
-    height: 500px !important;
+    width: 100% !important;
+    aspect-ratio: 17 / 22;
 }
 
 #flipbook .page {
