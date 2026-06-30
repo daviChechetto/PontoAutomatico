@@ -58,6 +58,8 @@ if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == t
         </div>
         
         <h1>POINT<span>Automatic</span></h1>
+
+        <img class="gif-inicial" src="ee42d91ece376e6847f6941b72269c76.gif" alt="Animação inicial">
     </header>
 
     <main class="formulario">

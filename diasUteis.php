@@ -15,145 +15,124 @@ $date = date('d-m-y');
 
 
 function diasUteis($dias, $date, $dispensa, $periodo, $mes, $carga){
-        
+
     for ($i = 1; $i <= $dias; $i++) {
 
-        
-
-        
         $date = date($i .'-'. $mes .'-Y');
 
         //finais de semana
-        if (isWeekend2($date)>= 6) {
+        if (isWeekend2($date) >= 6) {
+            if (isWeekend2($date) == 6) {
+                $rotulo = 'SÁBADO';
+            } else {
+                $rotulo = 'DOMINGO';
+            }
+
             echo "<tr>";
-            echo "<td>";
-                
-            echo $i;
-            
-            $escolha = rand(1, 2);
-          
+            echo "<td>" . $i . "</td>";
+            if ($periodo == 'manha') {
+                echo "<td>" . $rotulo . "</td>";
+                echo "<td>" . $rotulo . "</td>";
+                echo "<td></td>";
+                echo "<td></td>";
+            } else {
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td>" . $rotulo . "</td>";
+                echo "<td>" . $rotulo . "</td>";
+            }
+            echo "</tr>";
+            continue;
+        }
+
+        // dias da semana
+        echo "<tr>";
+        echo "<td>" . $i . "</td>";
+
+        if (in_array($i, $dispensa)) {
+            // feriado / folga
+            if ($periodo == 'manha') {
+                echo "<td>FERIADO</td>";
+                echo "<td>FERIADO</td>";
+                echo "<td></td>";
+                echo "<td></td>";
+            } else {
+                echo "<td></td>";
+                echo "<td></td>";
+                echo "<td>FERIADO</td>";
+                echo "<td>FERIADO</td>";
+            }
+            echo "</tr>";
+            continue;
+        }
+
+        $escolha = rand(1, 2);
+        if (($periodo == 'manha' && ($carga == 'seis'))) {
             if ($escolha == 1) {
-                $hora = $manha = [
+                $hora = [
                     'entrada' => '08:0' . rand(0, 4),
                     'saida' => '14:0' . rand(0, 4),
                 ];
             } else {
-                $hora = $manhaExtra = [
+                $hora = [
                     'entrada' => '07:5' . rand(6, 9),
                     'saida' => '14:0' . rand(0, 5),
                 ];
             }
-        
-            echo "<td>";
-            if(isWeekend2($date)== 6){
-                echo 'SABADO';
-            }elseif(isWeekend2($date)==7){
-                echo 'DOMINGO';
+        } else if (($periodo == 'tarde' && ($carga == 'seis'))) {
+            if ($escolha == 1) {
+                $hora = [
+                    'entrada' => '11:0' . rand(0, 4),
+                    'saida' => '17:0' . rand(0, 4),
+                ];
+            } else {
+                $hora = [
+                    'entrada' => '10:5' . rand(6, 9),
+                    'saida' => '17:0' . rand(0, 5),
+                ];
             }
-            echo ' ';
-            echo "</td>";
-            echo "<td>";
-            echo "</td>";
-            echo "<td>";
-            echo "</td>";
-            echo "<td>";
-            if(isWeekend2($date)== 6){
-                echo 'SABADO';
-            }elseif(isWeekend2($date)==7){
-                echo 'DOMINGO';
+        } else if (($periodo == 'manha' && ($carga == 'quatro'))) {
+            if ($escolha == 1) {
+                $hora = [
+                    'entrada' => '08:0' . rand(0, 4),
+                    'saida' => '12:0' . rand(0, 4),
+                ];
+            } else {
+                $hora = [
+                    'entrada' => '07:5' . rand(6, 9),
+                    'saida' => '12:0' . rand(0, 5),
+                ];
             }
-            echo "</td>";
-            echo "</td>";
-            echo "</tr>";
+        } else if (($periodo == 'tarde' && ($carga == 'quatro'))) {
+            if ($escolha == 1) {
+                $hora = [
+                    'entrada' => '13:0' . rand(0, 4),
+                    'saida' => '17:0' . rand(0, 4),
+                ];
+            } else {
+                $hora = [
+                    'entrada' => '12:5' . rand(6, 9),
+                    'saida' => '17:0' . rand(0, 5),
+                ];
+            }
         }
 
-        // dias da semana
-        if (!isWeekend($date)) {
-            echo "<tr>";
-            echo "<td>";
-            if (in_array($i, $dispensa)) { 
-                echo $i;
-                echo "<br>";
-                echo "<td>";
-                echo ' ';
-                echo "</td>";
-                echo "<td>";
-                echo "</td>";
-                echo "<td>";
-                echo "</td>";
-                echo "<td>";
-                echo ' ';
-                echo "</td>";
-                echo "</td>";
-                echo "</tr>";
-            }else{
-                echo $i;
-                echo "<br>";
-                
-                $escolha = rand(1, 2);
-                if(($periodo == 'manha' && ($carga == 'seis'))){
-                    if ($escolha == 1) {
-                        $hora = $manha = [
-                            'entrada' => '08:0' . rand(0, 4),
-                            'saida' => '14:0' . rand(0, 4),
-                        ];
-                    } else {
-                        $hora = $manhaExtra = [
-                            'entrada' => '07:5' . rand(6, 9),
-                            'saida' => '14:0' . rand(0, 5),
-                        ];
-                    }
-                }else if(($periodo == 'tarde' && ($carga == 'seis'))){
-                    if ($escolha == 1) {
-                        $hora = $manha = [
-                            'entrada' => '11:0' . rand(0, 4),
-                            'saida' => '17:0' . rand(0, 4),
-                        ];
-                    } else {
-                        $hora = $manhaExtra = [
-                            'entrada' => '10:5' . rand(6, 9),
-                            'saida' => '17:0' . rand(0, 5),
-                        ];
-                    }
-                }else if(($periodo == 'manha' && ($carga == 'quatro'))){
-                    if ($escolha == 1) {
-                        $hora = $manha = [
-                            'entrada' => '08:0' . rand(0, 4),
-                            'saida' => '12:0' . rand(0, 4),
-                        ];
-                    } else {
-                        $hora = $manhaExtra = [
-                            'entrada' => '07:5' . rand(6, 9),
-                            'saida' => '12:0' . rand(0, 5),
-                        ];
-                    }
-                }else if(($periodo == 'tarde' && ($carga == 'quatro'))){
-                    if ($escolha == 1) {
-                        $hora = $manha = [
-                            'entrada' => '13:0' . rand(0, 4),
-                            'saida' => '17:0' . rand(0, 4),
-                        ];
-                    } else {
-                        $hora = $manhaExtra = [
-                            'entrada' => '12:5' . rand(6, 9),
-                            'saida' => '17:0' . rand(0, 5),
-                        ];
-                    }
-                }
-                echo "<td>";
-                echo $hora['entrada'];
-                echo "</td>";
-                echo "<td>";
-                echo "</td>";
-                echo "<td>";
-                echo "</td>";
-                echo "<td>";
-                echo $hora['saida'];
-                echo "</td>";
-                echo "</td>";
-                echo "</tr>";
-            }
+        // As colunas sao relativas ao PERIODO de trabalho, nao ao horario do relogio.
+        // periodo 'manha' -> preenche as colunas MANHA (entrada/saida)
+        // periodo 'tarde' -> preenche as colunas TARDE (entrada/saida)
+        if ($periodo == 'manha') {
+            echo "<td>" . $hora['entrada'] . "</td>";
+            echo "<td>" . $hora['saida'] . "</td>";
+            echo "<td></td>";
+            echo "<td></td>";
+        } else {
+            echo "<td></td>";
+            echo "<td></td>";
+            echo "<td>" . $hora['entrada'] . "</td>";
+            echo "<td>" . $hora['saida'] . "</td>";
         }
+
+        echo "</tr>";
     }
 }
 

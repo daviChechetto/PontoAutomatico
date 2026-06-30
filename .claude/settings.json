@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(php -l \"c:\\\\wamp64\\\\www\\\\PontoAutomatico\\\\diasUteis.php\")",
+      "Bash(grep -v -E '^\\(vendor|node_modules\\)$')"
+    ]
+  }
+}
