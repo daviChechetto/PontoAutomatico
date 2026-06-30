@@ -237,6 +237,13 @@ body.night-mode::before {
 
     }
 
+    .gif-inicial {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        width: 50px;
+    }
     
     .imagem-seta{
         left: -250px;
